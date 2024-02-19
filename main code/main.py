@@ -26,6 +26,8 @@ while True:
                 print('pressed')
 
 
+    screen.fill('white')
+
 
 
     pygame.display.update()
