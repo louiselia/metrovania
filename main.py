@@ -1,5 +1,13 @@
 import pygame, sys
 
+def frame():
+    returner = [ ]
+    for i in range(fnum):
+        x = pygame.Rect(f_w * i, 0, f_w, f_h)
+        returner.append(x)
+
+    return returner
+
 
 pygame.init()
 
@@ -9,12 +17,23 @@ pygame.display.set_caption('t-shirts')
 clock = pygame.time.Clock()
 pygame.key.set_repeat(1)
 
+
+f_h = 16
+f_w = 16
+fnum = 3
+fnow = 0
+
+fdelay = 100
+lasttime = pygame.time.get_ticks()
+
 sprite_sheet = pygame.image.load('images\sprites\spritesheet_animation_test.png')
+
+frames = frame()
 
 bg_y = 1000
 
 while True:
-
+    time = pygame.time.get_ticks()
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -33,8 +52,14 @@ while True:
                 bg_y -= 10
                 print('pressed')
 
+    if time - lasttime < fdelay:
+        fnow = (fnow +1) % fnum
+        lasttime = time
+
 
     screen.fill('white')
+
+    screen.blit(sprite_sheet, (100, 100), frames[fnow])
 
 #    pygame.Rect(x, y, w, h)
 
