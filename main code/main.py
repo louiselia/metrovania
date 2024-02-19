@@ -40,7 +40,7 @@ while True:
 
     test_rect = pygame.Rect(1200, 600, 2000, 300)
     test_rect.center = (bg_y, 900)
-    pygame.draw.rect(screen, (0, 0, 0), test_rect)
+    pygame.draw.rect(screen, ("pink"), test_rect)
 
     pygame.display.update()
     clock.tick(60)
