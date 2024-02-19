@@ -4,7 +4,7 @@ import pygame, sys
 pygame.init()
 
 
-screen = pygame.display.set_mode((1200, 800))
+screen = pygame.display.set_mode((2000,1200))
 pygame.display.set_caption('t-shirts')
 clock = pygame.time.Clock()
 
