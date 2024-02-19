@@ -8,6 +8,9 @@ screen = pygame.display.set_mode((2000,1200))
 pygame.display.set_caption('t-shirts')
 clock = pygame.time.Clock()
 pygame.key.set_repeat(1)
+
+sprite_sheet = pygame.image.load('main code/images/sprites/spritesheet_animation_test.png')
+
 bg_y = 1000
 
 while True:
