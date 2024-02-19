@@ -7,7 +7,7 @@ pygame.init()
 screen = pygame.display.set_mode((2000,1200))
 pygame.display.set_caption('t-shirts')
 clock = pygame.time.Clock()
-pygame.key.set_repeat(1, 1)
+pygame.key.set_repeat(1)
 bg_y = 1000
 
 while True:
