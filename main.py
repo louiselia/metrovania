@@ -12,7 +12,7 @@ def frame():
 pygame.init()
 
 
-screen = pygame.display.set_mode((2000,1200))
+screen = pygame.display.set_mode((1200,800))
 pygame.display.set_caption('t-shirts')
 clock = pygame.time.Clock()
 pygame.key.set_repeat(1)
@@ -26,7 +26,7 @@ fnow = 0
 fdelay = 100
 lasttime = pygame.time.get_ticks()
 
-sprite_sheet = pygame.image.load('images\sprites\spritesheet_animation_test.png')
+sprite_sheet = pygame.image.load('images/sprites/spritesheet_animation_test.png')
 
 map = pytmx.load_pygame('images/map/starting are/tiled/starting_area.tmx')
 
