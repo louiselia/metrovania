@@ -43,7 +43,8 @@ def main():
 
     sprite_sheet = pygame.image.load('images/sprites/spritesheet_animation_test.png')
 
-    map = pytmx.load_pygame('images/map/starting are/tiled/starting_area.tmx')
+    map_data = pytmx.load_pygame('images/map/starting are/tiled/starting_area.tmx')
+    map_list = []
 
     frames = frame(fnum, f_w, f_h)
 
