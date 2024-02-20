@@ -24,6 +24,15 @@ def rect_drawer(screen, bg_y, color):
         test_rect.center = (bg_y, 900)
         pygame.draw.rect(screen, (color), test_rect)
 
+def map_lister():
+    map_data = pytmx.load_pygame('images/map/starting are/tiled/starting_area.tmx')
+    map_list = []
+    for row in map_data.visible_layers:
+        if isinstance(row, pytmx.TiledTileLayer):
+            map_list.append(row)
+
+    return map_list
+
 
 def main():
     pygame.init()
@@ -42,9 +51,6 @@ def main():
 
 
     sprite_sheet = pygame.image.load('images/sprites/spritesheet_animation_test.png')
-
-    map_data = pytmx.load_pygame('images/map/starting are/tiled/starting_area.tmx')
-    map_list = []
 
     frames = frame(fnum, f_w, f_h)
 
