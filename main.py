@@ -7,8 +7,8 @@ def frame(fnum, f_w, f_h):
         returner.append(x)
 
     return returner
-def ftimer(time, fnow, fnum):
 
+def ftimer(time, fnow, fnum):
 
     fdelay = 100
     lasttime = pygame.time.get_ticks()
@@ -31,10 +31,19 @@ def map_lister():
         if isinstance(row, pytmx.TiledTileLayer):
             map_list.append(row)
 
-    return map_list
+    return map_list, map_data
+
+def map_drawer(surface, map_list, map_data):
+    for layer in map_list:
+        for x, y, gid in layer:
+            tile =  map_data.get_tile_image_by_gid(gid)
+            if tile:
+                surface.blit(tile,( x * map_data.tilewidth, y * map_data.tileheight))
+
 
 
 def main():
+
     pygame.init()
 
 
@@ -43,18 +52,18 @@ def main():
     clock = pygame.time.Clock()
     pygame.key.set_repeat(1)
 
-
+#frame zeugs
     f_h = 16
     f_w = 16
     fnum = 3
     fnow = 0
-
-
     sprite_sheet = pygame.image.load('images/sprites/spritesheet_animation_test.png')
-
     frames = frame(fnum, f_w, f_h)
-
     bg_y = 1000
+
+#map zeugs
+    map_list, map_data = map_lister()
+
 
     while True:
         time = pygame.time.get_ticks()
@@ -84,6 +93,8 @@ def main():
         screen.blit(sprite_sheet, (100, 100), frames[fnow])
 
         rect_drawer(screen, bg_y, "pink")
+
+        map_drawer(screen, map_list, map_data)
 
         pygame.display.update()
         clock.tick(60)
