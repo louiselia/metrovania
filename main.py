@@ -1,4 +1,4 @@
-import pygame, sys
+import pygame, sys, pytmx
 
 def frame():
     returner = [ ]
@@ -27,6 +27,8 @@ fdelay = 100
 lasttime = pygame.time.get_ticks()
 
 sprite_sheet = pygame.image.load('images\sprites\spritesheet_animation_test.png')
+
+map = pytmx.load_pygame('images/map/starting are/tiled/starting_area.tmx')
 
 frames = frame()
 
