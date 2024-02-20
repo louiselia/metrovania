@@ -17,6 +17,14 @@ def ftimer(time, fnow, fnum):
         fnow = (fnow +1) % fnum
         return time, fnow
 
+
+def rect_drawer(screen, bg_y, color):
+    #    pygame.Rect(x, y, w, h)
+        test_rect = pygame.Rect(1200, 600, 2000, 300)
+        test_rect.center = (bg_y, 900)
+        pygame.draw.rect(screen, (color), test_rect)
+
+
 def main():
     pygame.init()
 
@@ -68,11 +76,7 @@ def main():
 
         screen.blit(sprite_sheet, (100, 100), frames[fnow])
 
-    #    pygame.Rect(x, y, w, h)
-
-        test_rect = pygame.Rect(1200, 600, 2000, 300)
-        test_rect.center = (bg_y, 900)
-        pygame.draw.rect(screen, ("pink"), test_rect)
+        rect_drawer(screen, bg_y, "pink")
 
         pygame.display.update()
         clock.tick(60)
