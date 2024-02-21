@@ -34,9 +34,7 @@ def map_lister():
     return map_list, map_data
 
 def map_drawer(surface, map_list, map_data):
-
     upsizefaktor = 7 # this times 16 is the width/height of one single tile
-
     for layer in map_list:
         for x, y, gid in layer:
             tile =  map_data.get_tile_image_by_gid(gid)
