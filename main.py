@@ -47,7 +47,7 @@ def main():
     pygame.init()
 
 
-    screen = pygame.display.set_mode((800, 320))
+    screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
     pygame.display.set_caption('t-shirts')
     clock = pygame.time.Clock()
     pygame.key.set_repeat(1)
@@ -66,6 +66,7 @@ def main():
 
 
     while True:
+
         time = pygame.time.get_ticks()
 
         for event in pygame.event.get():
