@@ -33,7 +33,7 @@ def map_lister():
 
     return map_list, map_data
 
-def map_drawer(surface, map_list, map_data):
+def map_drawer(surface, map_list, map_data, inputw, inputh):
     upsizefaktorw, upsizefaktorh = surface.get_width() / 256, surface.get_height() / 192
 
 
@@ -42,7 +42,7 @@ def map_drawer(surface, map_list, map_data):
             tile =  map_data.get_tile_image_by_gid(gid)
             if tile:
                 tile = pygame.transform.scale(tile, (map_data.tilewidth * upsizefaktorw, map_data.tileheight * upsizefaktorh))
-                surface.blit(tile,( x * upsizefaktorw * map_data.tilewidth, y * upsizefaktorh *  map_data.tileheight))
+                surface.blit(tile, (x * upsizefaktorw * map_data.tilewidth + inputw, y * upsizefaktorh * map_data.tileheight + inputh))
 
 
 
@@ -52,7 +52,7 @@ def main():
 
 
     screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
-    pygame.display.set_caption('t-shirts')
+    pygame.display.set_caption('Metrovania')
     clock = pygame.time.Clock()
     pygame.key.set_repeat(1)
 
@@ -63,7 +63,10 @@ def main():
     fnow = 0
     sprite_sheet = pygame.image.load('images/sprites/spritesheet_animation_test.png')
     frames = frame(fnum, f_w, f_h)
-    bg_y = 1000
+
+    move_speed = 0
+    bg_y = move_speed
+    bg_x = move_speed
 
     #map zeugs
     map_list, map_data = map_lister()
@@ -81,13 +84,23 @@ def main():
 
             if event.type == pygame.KEYDOWN:
 
-
+                # left right input
                 if event.key == pygame.K_d:
-                    bg_y += 10
+                    bg_x -= 1
                     print('pressed')
 
                 if event.key == pygame.K_a:
-                    bg_y -= 10
+                    bg_x += 1
+                    print('pressed')
+
+
+                # up down inputs
+                if event.key == pygame.K_w:
+                    bg_y -= 1
+                    print('pressed')
+
+                if event.key == pygame.K_s:
+                    bg_y += 1
                     print('pressed')
 
         time, fnow = ftimer(time, fnow, fnum)
@@ -97,9 +110,7 @@ def main():
 
         screen.blit(sprite_sheet, (100, 100), frames[fnow])
 
-        rect_drawer(screen, bg_y, "pink")
-
-        map_drawer(screen, map_list, map_data)
+        map_drawer(screen, map_list, map_data, bg_x, bg_y)
 
         pygame.display.update()
         clock.tick(60)
