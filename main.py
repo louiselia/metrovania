@@ -44,7 +44,6 @@ def map_drawer(surface, map_list, map_data):
 
 
 
-
 def main():
 
     pygame.init()
