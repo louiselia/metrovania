@@ -34,13 +34,15 @@ def map_lister():
     return map_list, map_data
 
 def map_drawer(surface, map_list, map_data):
-    upsizefaktor = 7 # this times 16 is the width/height of one single tile
+    upsizefaktorw, upsizefaktorh = surface.get_width() / 256, surface.get_height() / 192
+
+
     for layer in map_list:
         for x, y, gid in layer:
             tile =  map_data.get_tile_image_by_gid(gid)
             if tile:
-                tile = pygame.transform.scale(tile, (map_data.tilewidth * upsizefaktor, map_data.tileheight * upsizefaktor))
-                surface.blit(tile,( x * upsizefaktor * map_data.tilewidth, y * upsizefaktor *  map_data.tileheight))
+                tile = pygame.transform.scale(tile, (map_data.tilewidth * upsizefaktorw, map_data.tileheight * upsizefaktorh))
+                surface.blit(tile,( x * upsizefaktorw * map_data.tilewidth, y * upsizefaktorh *  map_data.tileheight))
 
 
 
