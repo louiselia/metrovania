@@ -64,9 +64,9 @@ def main():
     sprite_sheet = pygame.image.load('images/sprites/spritesheet_animation_test.png')
     frames = frame(fnum, f_w, f_h)
 
-    move_speed = 0
-    bg_y = move_speed
-    bg_x = move_speed
+    move_speed = 100
+    bg_y = 0
+    bg_x = 0
 
     #map zeugs
     map_list, map_data = map_lister()
@@ -86,27 +86,27 @@ def main():
 
                 # left right input
                 if event.key == pygame.K_d:
-                    bg_x -= 1
+                    bg_x -= move_speed
                     print('pressed')
 
                 if event.key == pygame.K_a:
-                    bg_x += 1
+                    bg_x += move_speed
                     print('pressed')
 
 
                 # up down inputs
                 if event.key == pygame.K_w:
-                    bg_y -= 1
+                    bg_y -= move_speed
                     print('pressed')
 
                 if event.key == pygame.K_s:
-                    bg_y += 1
+                    bg_y += move_speed
                     print('pressed')
 
         time, fnow = ftimer(time, fnow, fnum)
 
 
-        screen.fill('white')
+        screen.fill('black')
 
         screen.blit(sprite_sheet, (100, 100), frames[fnow])
 
