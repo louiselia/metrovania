@@ -33,9 +33,9 @@ def map_lister():
 
     return map_list, map_data
 
-def map_drawer(surface, map_list, map_data):
+def map_drawer(surface, map_list, map_data, inputs):
 
-    upsizefaktorw, upsizefaktorh = surface.get_width() / 256, surface.get_height() / 256
+    upsizefaktorw, upsizefaktorh = surface.get_width() / 256, surface.get_height() / 192
 # 16 * 12 scrren tiles I doubt those messurments but its just the numbertimes 16 ig it could be squared too
 # this times 16 is the width/height of one single tile
 
@@ -44,7 +44,7 @@ def map_drawer(surface, map_list, map_data):
             tile =  map_data.get_tile_image_by_gid(gid)
             if tile:
                 tile = pygame.transform.scale(tile, (map_data.tilewidth * upsizefaktorw, map_data.tileheight * upsizefaktorh))
-                surface.blit(tile, (x * upsizefaktorw * map_data.tilewidth, y * upsizefaktorh * map_data.tileheight))
+                surface.blit(tile, (x * inputs * upsizefaktorw * map_data.tilewidth, y * upsizefaktorh * map_data.tileheight))
 
 
 
@@ -66,7 +66,7 @@ def main():
     fnow = 0
     sprite_sheet = pygame.image.load('images/sprites/spritesheet_animation_test.png')
     frames = frame(fnum, f_w, f_h)
-    bg_y = 1000
+    bg_y = 1
 
     #map zeugs
     map_list, map_data = map_lister()
@@ -100,9 +100,7 @@ def main():
 
         screen.blit(sprite_sheet, (100, 100), frames[fnow])
 
-        rect_drawer(screen, bg_y, "pink")
-
-        map_drawer(screen, map_list, map_data)
+        map_drawer(screen, map_list, map_data, bg_y)
 
         pygame.display.update()
         clock.tick(60)
