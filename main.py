@@ -108,7 +108,7 @@ def main():
 
         screen.fill('black')
 
-        screen.blit(sprite_sheet, (100, 100), frames[fnow])
+#        screen.blit(sprite_sheet, (100, 100), frames[fnow])
 
         map_drawer(screen, map_list, map_data, bg_x, bg_y)
 
