@@ -1,7 +1,7 @@
 import pygame, sys, pytmx
 
 def frame(fnum, f_w, f_h):
-    returner = [ ]
+    returner = []
     for i in range(fnum):
         x = pygame.Rect(f_w * i, 0, f_w, f_h)
         returner.append(x)
@@ -19,10 +19,10 @@ def ftimer(time, fnow, fnum):
 
 
 def rect_drawer(screen, bg_y, color):
-    #    pygame.Rect(x, y, w, h)
-        test_rect = pygame.Rect(1200, 600, 2000, 300)
-        test_rect.center = (bg_y, 900)
-        pygame.draw.rect(screen, (color), test_rect)
+    #pygame.Rect(x, y, w, h)
+    test_rect = pygame.Rect(1200, 600, 2000, 300)
+    test_rect.center = (bg_y, 900)
+    pygame.draw.rect(screen, (color), test_rect)
 
 def map_lister():
     map_data = pytmx.load_pygame('images/map/starting are/tiled/starting_area.tmx')
@@ -52,7 +52,7 @@ def main():
     clock = pygame.time.Clock()
     pygame.key.set_repeat(1)
 
-#frame zeugs
+    #frame zeugs
     f_h = 16
     f_w = 16
     fnum = 3
@@ -61,7 +61,7 @@ def main():
     frames = frame(fnum, f_w, f_h)
     bg_y = 1000
 
-#map zeugs
+    #map zeugs
     map_list, map_data = map_lister()
 
 
