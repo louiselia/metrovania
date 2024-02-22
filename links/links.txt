@@ -1,0 +1,9 @@
+map:
+lush cave
+https://trixelized.itch.io/starstring-fields
+snowy slopes
+https://ansimuz.itch.io/mountain-dusk-parallax-background
+
+characters:
+main character
+https://bruno-farias.itch.io/sidescroller-character-pack
