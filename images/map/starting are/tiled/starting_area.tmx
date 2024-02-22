@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="50" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="1">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="50" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="32">
  <tileset firstgid="1" source="tsx/tileset.tsx"/>
  <tileset firstgid="199" source="tsx/background_0.tsx"/>
  <tileset firstgid="397" source="tsx/background_1.tsx"/>
@@ -100,4 +100,26 @@
 163,163,163,163,163,163,163,163,163,163,163,163,187,188,163,163,163,163,163,163,163,163,163,163,163,163,163,163,163,163,163,163,163,163,163,163,163,163,163,163,163,163,163,163,163,163,163,163,163,163
 </data>
  </layer>
+ <objectgroup id="7" name="Object Layer 1">
+  <object id="8" x="15" y="175.667" width="81.3333" height="82.6667">
+   <polygon points="0,0 81.3333,0 81.3333,82.6667 0,82.6667"/>
+  </object>
+  <object id="12" x="176.333" y="80" width="79.6667" height="49"/>
+  <object id="13" x="2" y="65.3333" width="13" height="109"/>
+  <object id="14" x="1.33333" y="48" width="31.3333" height="15.6667"/>
+  <object id="15" x="29.3333" y="33.3333" width="35" height="14"/>
+  <object id="16" x="60.6667" y="16.3333" width="20.3333" height="15"/>
+  <object id="18" x="82.6667" y="7" width="183" height="8.66667"/>
+  <object id="19" x="257" y="15.3333" width="49.6667" height="79.3333"/>
+  <object id="21" x="93.3333" y="256.333" width="82.6667" height="34"/>
+  <object id="22" x="175" y="289.333" width="65.3333" height="23.3333"/>
+  <object id="23" x="240.667" y="256" width="287.333" height="37"/>
+  <object id="24" x="304.667" y="93" width="174.667" height="18.3333"/>
+  <object id="25" x="528.333" y="240.667" width="157.667" height="17"/>
+  <object id="26" x="475" y="77.6667" width="115.667" height="17"/>
+  <object id="27" x="587" y="60.6667" width="134.667" height="18.6667"/>
+  <object id="28" x="720.333" y="62" width="31.3333" height="34"/>
+  <object id="29" x="686.333" y="257.333" width="114" height="26.3333"/>
+  <object id="30" x="735.667" y="92.6667" width="64.6667" height="18.3333"/>
+ </objectgroup>
 </map>
