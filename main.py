@@ -64,8 +64,8 @@ def main():
     #frame zeugs
     f_h = 16
     f_w = 16
-    fnum = 3
-    fnow = 0
+    fnum = 3 # frame count
+    fnow = 0 # frame the programm is currently on
     sprite_sheet = pygame.image.load('images/sprites/spritesheet_animation_test.png')
     frames = frame(fnum, f_w, f_h)
 
@@ -74,7 +74,7 @@ def main():
     bg_x = 0
 
     #map zeugs
-    map_list, map_data = map_lister()
+    map_list, map_data = map_lister() # gets two lists one withe the tiles in the rows and one with all the info from the given tmx file
 
 
     while True:
