@@ -64,7 +64,7 @@ def main():
     sprite_sheet = pygame.image.load('images/sprites/spritesheet_animation_test.png')
     frames = frame(fnum, f_w, f_h)
 
-    move_speed = 100
+    move_speed = 1
     bg_y = 0
     bg_x = 0
 
