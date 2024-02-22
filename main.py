@@ -1,6 +1,8 @@
 import pygame, sys, pytmx
 
 def frame(fnum, f_w, f_h):
+#   this determins how big the singular animation parts will be
+
     returner = []
     for i in range(fnum):
         x = pygame.Rect(f_w * i, 0, f_w, f_h)
@@ -9,6 +11,7 @@ def frame(fnum, f_w, f_h):
     return returner
 
 def ftimer(time, fnow, fnum):
+#   this looks if the time ist < 100 this determins the time every part of an animation uses
 
     fdelay = 100
     lasttime = pygame.time.get_ticks()
@@ -19,12 +22,14 @@ def ftimer(time, fnow, fnum):
 
 
 def rect_drawer(screen, bg_y, color):
-    #pygame.Rect(x, y, w, h)
     test_rect = pygame.Rect(1200, 600, 2000, 300)
     test_rect.center = (bg_y, 900)
     pygame.draw.rect(screen, (color), test_rect)
 
 def map_lister():
+#   this takes every tile that is a instance(that means it will have to be drawn) and puts it in a list
+#   every row has its own list inside of the map list
+
     map_data = pytmx.load_pygame('images/map/starting are/tiled/starting_area.tmx')
     map_list = []
     for row in map_data.visible_layers:
