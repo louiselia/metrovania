@@ -106,7 +106,7 @@ def main():
         time, fnow = ftimer(time, fnow, fnum)
 
 
-        screen.fill('black')
+        screen.fill((0, 27, 35))
 
 #        screen.blit(sprite_sheet, (100, 100), frames[fnow])
 
