@@ -2,6 +2,7 @@ import pygame, sys, pytmx
 
 def frame(fnum, f_w, f_h):
 #   this determins how big the singular animation parts will be
+#   and than puts the places of eacht tile inside of the spritesheet provided in a list wich is than returned
 
     returner = []
     for i in range(fnum):
