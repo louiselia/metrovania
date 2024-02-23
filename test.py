@@ -1,27 +1,45 @@
 import pygame
 import sys
-
-class Player(pygame.sprite.sprite):
-
-
+from pygame.locals import *
 
 pygame.init()
-clock = pygame.time.Clock()
-screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
-pygame.display.set_caption("Test Animation")
 
-moving_sprites = pygame.sprite.Group()
-player = Player(100,100)
-moving_sprites = add(player)
+WINDOW_SIZE = (800, 600)
+screen = pygame.display.set_mode(WINDOW_SIZE)
 
-loop = True
-while loop:
- for event in pygame.event.get():
-  if event.type == pygame.QUIT:
-   pygame.quit()
-   sys.exit()
- screen.fill((255,255,255))
- moving_sprites.draw(screen)
- pygame.display.flip()
- clock.tick(60)
+pygame.display.set_caption("Character Example")
+
+
+
+
+class Character:
+    def __init__(self, image, x, y):
+        self.image = pygame.image.load(image)
+        self.x = x
+        self.y = y
+    def draw(self, screen):
+        screen.blit(self.image, (self.x, self.y))
+
+
+player = Character("images/sprites/character/Characters/king.png", 100, 100)
+
+while True:
+
+    for event in pygame.event.get():
+        if event.type == QUIT:
+            pygame.quit()
+            sys.exit()
+
+        elif event.type == KEYDOWN:
+            if event.key == K_LEFT:
+                player.x -= 10
+            elif event.key == K_RIGHT:
+                player.x += 10
+            elif event.key == K_UP:
+                player.y -= 10
+            elif event.key == K_DOWN:
+                player.y += 10
+
+    player.draw(screen)
+    pygame.display.update()
 

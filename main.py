@@ -3,6 +3,11 @@ import pygame, sys, pytmx
 class Characters():
     def __int__(self, knight, x,y):
         self.knight = pygame.image.load("images/sprites/character/Characters/king.png")
+        self.x = x
+        self.y = y
+
+def draw_character(self,screen):
+    screen.blit(self.knight, (self.x, self.y))
 
 def frame(fnum, f_w, f_h):
 #   this determins how big the singular animation parts will be
