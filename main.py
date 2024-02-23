@@ -14,8 +14,9 @@ def draw_character(self,screen):
     screen.blit(self.knight, (self.x, self.y))
 
 def frame(fnum, f_w, f_h):
-#   this determins how big the singular animation parts will be
-#   and than puts the places of eacht tile inside of the spritesheet provided in a list wich is than returned
+
+    # this determines how big the singular animation parts will be
+    # and then puts the places of each tile inside the sprite sheet provided in a list that is than returned
 
     returner = []
     for i in range(fnum):
@@ -119,11 +120,11 @@ def main():
 
                 # up down inputs
                 if event.key == pygame.K_w:
-                    bg_y -= move_speed
+                    bg_y += move_speed
                     print('pressed')
 
                 if event.key == pygame.K_s:
-                    bg_y += move_speed
+                    bg_y -= move_speed
                     print('pressed')
 
         time, fnow = ftimer(time, fnow, fnum)

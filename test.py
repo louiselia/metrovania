@@ -1,7 +1,7 @@
 import pygame
 import sys
 from pygame.locals import *
-
+'''
 pygame.init()
 
 WINDOW_SIZE = (800, 600)
@@ -40,4 +40,6 @@ while True:
     screen.fill("black")
     player.draw(screen)
     pygame.display.update()
+'''
+
 
