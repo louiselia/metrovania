@@ -1,11 +1,15 @@
 import pygame, sys, pytmx
 
-class Characters():
-    def __int__(self, knight, x,y):
-        self.knight = pygame.image.load("images/sprites/character/Characters/king.png")
+class Character:
+    def __init__(self, image, x, y):
+        self.image = pygame.image.load(image)
         self.x = x
         self.y = y
+    def draw(self, screen):
+        screen.blit(self.image, (self.x, self.y))
 
+
+player = Character("images/sprites/character/Characters/king.png", 100, 100)
 def draw_character(self,screen):
     screen.blit(self.knight, (self.x, self.y))
 
@@ -40,7 +44,7 @@ def map_lister():
 #   this takes every tile that is a instance(that means it will have to be drawn) and puts it in a list
 #   every row has its own list inside of the map list
 
-    map_data = pytmx.load_pygame('images/map/starting are/tiled/starting_area.tmx')
+    map_data = pytmx.load_pygame('images/map/starting are/tiled/tsx/starting area.tmx')
     map_list = []
     for row in map_data.visible_layers:
         if isinstance(row, pytmx.TiledTileLayer):
@@ -86,6 +90,10 @@ def main():
     #map zeugs
     map_list, map_data = map_lister() # gets two lists one withe the tiles in the rows and one with all the info from the given tmx file
 
+#   player zeugs
+
+    player = Character("images/sprites/character/Characters/king.png", 100, 100)
+
 
     while True:
 
@@ -123,9 +131,11 @@ def main():
 
         screen.fill((0, 27, 35))
 
-#        screen.blit(sprite_sheet, (100, 100), frames[fnow])
+#       screen.blit(sprite_sheet, (100, 100), frames[fnow])
 
         map_drawer(screen, map_list, map_data, bg_x, bg_y)
+
+        player.draw(screen)
 
         pygame.display.update()
         clock.tick(60)
