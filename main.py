@@ -2,7 +2,8 @@ import pygame, sys, pytmx
 
 class Characters():
     def __int__(self, knight, x,y):
-        self.knight = pygame.image.load()
+        self.knight = pygame.image.load("images/sprites/character/Characters/king.png")
+
 def frame(fnum, f_w, f_h):
 #   this determins how big the singular animation parts will be
 #   and than puts the places of eacht tile inside of the spritesheet provided in a list wich is than returned
@@ -70,7 +71,7 @@ def main():
     f_w = 16
     fnum = 3 # frame count
     fnow = 0 # frame the programm is currently on
-    sprite_sheet = pygame.image.load('images/sprites/spritesheet_animation_test.png')
+    # sprite_sheet = pygame.image.load('images/sprites/spritesheet_animation_test.png')
     frames = frame(fnum, f_w, f_h)
 
     move_speed = 1
