@@ -9,7 +9,7 @@ class Character:
         screen.blit(self.image, (self.x, self.y))
 
 
-player = Character("images/sprites/character/Characters/king.png", 100, 100)
+
 def draw_character(self,screen):
     screen.blit(self.knight, (self.x, self.y))
 
@@ -40,11 +40,11 @@ def rect_drawer(screen, bg_y, color):
     test_rect.center = (bg_y, 900)
     pygame.draw.rect(screen, (color), test_rect)
 
-def map_lister():
+def map_lister(tmxfile):
 #   this takes every tile that is a instance(that means it will have to be drawn) and puts it in a list
 #   every row has its own list inside of the map list
 
-    map_data = pytmx.load_pygame('images/map/starting are/tiled/tsx/starting area.tmx')
+    map_data = pytmx.load_pygame(tmxfile)
     map_list = []
     for row in map_data.visible_layers:
         if isinstance(row, pytmx.TiledTileLayer):
@@ -88,7 +88,7 @@ def main():
     bg_x = 0
 
     #map zeugs
-    map_list, map_data = map_lister() # gets two lists one withe the tiles in the rows and one with all the info from the given tmx file
+    map_list, map_data = map_lister('images/map/starting are/tiled/tsx/starting area.tmx') # gets two lists one withe the tiles in the rows and one with all the info from the given tmx file
 
 #   player zeugs
 
