@@ -92,7 +92,7 @@ def main():
 
 #   player zeugs
 
-    player = Character("images/sprites/character/Characters/king.png", 100, 100)
+    player = Character("images/sprites/character/Characters/king.png", screen.get_width() / 4, screen.get_height() / 4 * 3)
 
 
     while True:
