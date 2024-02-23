@@ -1,5 +1,8 @@
 import pygame, sys, pytmx
 
+class Characters():
+    def __int__(self, knight, x,y):
+        self.knight = pygame.image.load()
 def frame(fnum, f_w, f_h):
 #   this determins how big the singular animation parts will be
 #   and than puts the places of eacht tile inside of the spritesheet provided in a list wich is than returned
