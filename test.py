@@ -9,9 +9,6 @@ screen = pygame.display.set_mode(WINDOW_SIZE)
 
 pygame.display.set_caption("Character Example")
 
-
-
-
 class Character:
     def __init__(self, image, x, y):
         self.image = pygame.image.load(image)
@@ -40,6 +37,7 @@ while True:
             elif event.key == K_DOWN:
                 player.y += 10
 
+    screen.fill("black")
     player.draw(screen)
     pygame.display.update()
 
