@@ -81,12 +81,10 @@ def main():
             if pressed_keys[pygame.K_d] == True:
                 fnum = 6
                 a_num = 1
-                fnow = 0
 
             if pressed_keys[pygame.K_a] == True:
                 fnum = 6
                 a_num = 1
-                fnow = 0
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1:
