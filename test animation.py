@@ -18,11 +18,12 @@ def ftimer(time, fnow, fnum, lasttime):
 # this looks if the time ist < 100 this determins the time every part of an animation uses
     fdelay = 100
     print(time)
-
+    print(fnow)
     if time - lasttime < fdelay:
         lasttime = time
         fnow = (fnow + 1) % fnum
-        return fnow, lasttime
+
+    return fnow, lasttime
 
 
 def main():
