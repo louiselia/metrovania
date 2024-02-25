@@ -24,8 +24,6 @@ def frame(fnum, f_w, f_h, f_y):
 def ftimer(time, fnow, fnum, lasttime):
 # this looks if the time ist < 100 this determins the time every part of an animation uses
     fdelay = 100
-    print(time)
-    print(lasttime)
     if time - lasttime > fdelay:
         fnow = (fnow + 1) % fnum
         lasttime = time
@@ -45,6 +43,7 @@ def main():
     f_h = 32
     f_y = 32
 
+    a_num = 0
 
     WIDTH = 300
     HEIGHT = 300
@@ -54,23 +53,29 @@ def main():
 
     frame_list = frame(fnum, f_w, f_h, f_y)
 
-    print(frame_list)
-
     while True:
+
         time = pygame.time.get_ticks()
+        screen.fill("black")
         for event in pygame.event.get():
+            print(event)
+
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
 
+            if event.type == pygame.K_d:
+                a_num = 1
+                print("anum entry")
+
+            else:
+                screen.blit(sprite_sheet, (150, 150), frame_list[0][fnow])
 
 
         fnow, lasttime = ftimer(time, fnow, fnum, lasttime)
 
-        screen.fill("white")
-
-        screen.blit(sprite_sheet,(150, 150), frame_list[2][fnow])
-
+        screen.blit(sprite_sheet, (150, 150), frame_list[a_num][fnow])
         pygame.display.update()
+
 
 main()
