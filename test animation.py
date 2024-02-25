@@ -10,6 +10,19 @@ def frame(fnum, f_w, f_h, f_y):
     returner = []   # returner creates a list containing every frame in the current row
     for j in range(7):
         liste = []
+
+        if j == 2 or j == 3:
+            fnum = 1
+
+        elif j == 4:
+            fnum = 14
+
+        elif j == 5:
+            fnum = 2
+
+        elif j == 6:
+            fnum = 6
+
         for i in range(fnum):   # goes through the number of images
 
             x = pygame.Rect(f_w * i, f_y * j, f_w, f_h)   # creates a rect, with x = width times pos, y = 0 and the width and height of the rects
@@ -36,7 +49,7 @@ def main():
 
 
     fnow = 0
-    fnum = 14
+    fnum = 7
     lasttime = 0
 
     f_w = 48
@@ -52,7 +65,7 @@ def main():
     sprite_sheet = pygame.image.load("images/sprites/character/Characters/Knight_anin.png")
 
     frame_list = frame(fnum, f_w, f_h, f_y)
-
+    print()
     while True:
         pressed_keys = pygame.key.get_pressed()
 
@@ -60,7 +73,6 @@ def main():
 
         screen.fill("black")
         for event in pygame.event.get():
-            print(event)
 
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -83,6 +95,7 @@ def main():
 
             if event.type == pygame.KEYUP or event.type == pygame.MOUSEBUTTONUP:
                 a_num = 0
+                fnum = 7
 
 
         fnow, lasttime = ftimer(time, fnow, fnum, lasttime)
