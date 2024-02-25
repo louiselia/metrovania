@@ -36,7 +36,7 @@ def main():
 
 
     fnow = 0
-    fnum = 7
+    fnum = 14
     lasttime = 0
 
     f_w = 48
@@ -54,8 +54,10 @@ def main():
     frame_list = frame(fnum, f_w, f_h, f_y)
 
     while True:
+        pressed_keys = pygame.key.get_pressed()
 
         time = pygame.time.get_ticks()
+
         screen.fill("black")
         for event in pygame.event.get():
             print(event)
@@ -64,12 +66,23 @@ def main():
                 pygame.quit()
                 sys.exit()
 
-            if event.type == pygame.K_d:
+            if pressed_keys[pygame.K_d] == True:
+                fnum = 7
                 a_num = 1
-                print("anum entry")
 
-            else:
-                screen.blit(sprite_sheet, (150, 150), frame_list[0][fnow])
+
+            if pressed_keys[pygame.K_a] == True:
+                fnum = 7
+                a_num = 1
+
+
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    fnum = 14
+                    a_num = 4
+
+            if event.type == pygame.KEYUP or event.type == pygame.MOUSEBUTTONUP:
+                a_num = 0
 
 
         fnow, lasttime = ftimer(time, fnow, fnum, lasttime)
