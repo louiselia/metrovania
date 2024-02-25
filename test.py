@@ -20,6 +20,7 @@ class spritesheet:
         self.rect = self.sheet.get_rect()
         w = self.cellWidth = self.rect.width / cols
         h = self.cellHeigt = self.rect.height / rows
+        # half of the width and half od the height
         halfw = self.cellCenter = (w/2)
         halfh = self.cellCenter = (h/2)
 
@@ -31,13 +32,15 @@ class spritesheet:
             cell_width = w
             cell_height = h
             self.cells.append((cell_x, cell_y, cell_width, cell_height))
-
+        # complicated list for the placement of the single characters on the sprite sheet
         self.handle = [(0, 0), (-halfw, 0), (-w, 0), (0, -halfh), (-halfw, -halfw), (-w, -halfh), (0, -h), (-halfw, -h), (-w, -h)]
 
     def draw(self,surface, cellindex, x, y, handle = 0):
         surface.blit(self.sheet,(x + self.handle[handle][0], y + self.handle[handle][1]),self.cells[cellindex])
 
-
+s = spritesheet("images/sprites/character/Characters/Knight_anin.png", 7,7)
+CENTER_HANDLE = 4
+index = 0
 class Character:
     def __init__(self, image, x, y):
         self.image = pygame.image.load(image)
@@ -49,7 +52,8 @@ class Character:
 player = Character("images/sprites/character/Characters/Knight_anin.png", 100, 100)
 
 while True:
-
+    s.draw(DS, index % s.totalCellCount, halfw, halfh, CENTER_HANDLE)
+    pygame.draw.circle(DS, "white", (halfw, halfh),2,0)
     for event in pygame.event.get():
         if event.type == QUIT:
             pygame.quit()
