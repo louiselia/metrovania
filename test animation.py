@@ -28,7 +28,6 @@ def ftimer(time, fnow, fnum, lasttime):
     print(lasttime)
     if time - lasttime > fdelay:
         fnow = (fnow + 1) % fnum
-
         lasttime = time
     return fnow, lasttime
 
@@ -55,6 +54,8 @@ def main():
 
     frame_list = frame(fnum, f_w, f_h, f_y)
 
+    print(frame_list)
+
     while True:
         time = pygame.time.get_ticks()
         for event in pygame.event.get():
@@ -66,7 +67,7 @@ def main():
 
         screen.fill("black")
 
-        screen.blit(sprite_sheet,(150, 150), frame_list[fnow[fnow]])
+        screen.blit(sprite_sheet,(150, 150), frame_list[fnow][6])
 
         pygame.display.update()
 
