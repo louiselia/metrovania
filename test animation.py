@@ -17,37 +17,42 @@ def frame(fnum, f_w, f_h):
 def ftimer(time, fnow, fnum, lasttime):
 # this looks if the time ist < 100 this determins the time every part of an animation uses
     fdelay = 100
+    print(time)
+    print(lasttime)
     if time - lasttime < fdelay:
         lasttime = pygame.time.get_ticks()
         fnow = (fnow +1) % fnum
         return fnow, lasttime
 
+def main():
 
-fnow = 0
-fnum = 7
-f_w = 48
-f_h = 32
-lasttime = 0
+    fnow = 0
+    fnum = 7
+    f_w = 48
+    f_h = 32
+    lasttime = 0
 
-WIDTH = 300
-HEIGHT = 300
-screen = pygame.display.set_mode((WIDTH,HEIGHT))
-pygame.display.set_caption("Animation Test")
-sprite_sheet = pygame.image.load("images/sprites/character/Characters/Knight_anin.png")
+    WIDTH = 300
+    HEIGHT = 300
+    screen = pygame.display.set_mode((WIDTH,HEIGHT))
+    pygame.display.set_caption("Animation Test")
+    sprite_sheet = pygame.image.load("images/sprites/character/Characters/Knight_anin.png")
 
-frame_list = frame(fnum, f_w, f_h)
+    frame_list = frame(fnum, f_w, f_h)
 
-while True:
-    time = pygame.time.get_ticks()
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            sys.exit()
+    while True:
+        time = pygame.time.get_ticks()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
 
-    fnow, lasttime = ftimer(time, fnow, fnum, lasttime)
+        fnow, lasttime = ftimer(time, fnow, fnum, lasttime)
 
-    screen.fill("black")
+        screen.fill("black")
 
-    screen.blit(sprite_sheet,(150, 150), frame_list[fnow])
+        screen.blit(sprite_sheet,(150, 150), frame_list[fnow])
 
-    pygame.display.update()
+        pygame.display.update()
+
+main()
