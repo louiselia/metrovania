@@ -81,22 +81,23 @@ def main():
             if pressed_keys[pygame.K_d] == True:
                 fnum = 6
                 a_num = 1
-
+                fnow = 0
 
             if pressed_keys[pygame.K_a] == True:
                 fnum = 6
                 a_num = 1
-
+                fnow = 0
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1:
                     fnum = 13
                     a_num = 4
+                    fnow = 0
 
             if event.type == pygame.KEYUP or event.type == pygame.MOUSEBUTTONUP:
                 a_num = 0
                 fnum = 7
-
+                fnow = 0
 
         fnow, lasttime = ftimer(time, fnow, fnum, lasttime)
 
