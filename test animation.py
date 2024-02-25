@@ -43,7 +43,7 @@ def main():
 
     f_w = 48
     f_h = 32
-    f_y = 0
+    f_y = 32
 
 
     WIDTH = 300
@@ -63,11 +63,13 @@ def main():
                 pygame.quit()
                 sys.exit()
 
+
+
         fnow, lasttime = ftimer(time, fnow, fnum, lasttime)
 
-        screen.fill("black")
+        screen.fill("white")
 
-        screen.blit(sprite_sheet,(150, 150), frame_list[fnow][6])
+        screen.blit(sprite_sheet,(150, 150), frame_list[2][fnow])
 
         pygame.display.update()
 
