@@ -19,11 +19,10 @@ def ftimer(time, fnow, fnum, lasttime):
     fdelay = 100
     print(time)
     print(lasttime)
-    if time - lasttime < fdelay:
+    if time - lasttime > fdelay:
         fnow = (fnow + 1) % fnum
 
-
-    lasttime = time
+        lasttime = time
     return fnow, lasttime
 
 
