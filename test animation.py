@@ -14,9 +14,20 @@ def frame(fnum, f_w, f_h):
 
     return returner
 
+def ftimer(time, fnow, fnum, lasttime):
+# this looks if the time ist < 100 this determins the time every part of an animation uses
+    fdelay = 100
+    if time - lasttime < fdelay:
+        lasttime = pygame.time.get_ticks()
+        fnow = (fnow +1) % fnum
+        return fnow, lasttime
+
+
+fnow = 0
 fnum = 7
 f_w = 48
 f_h = 32
+lasttime = 0
 
 WIDTH = 300
 HEIGHT = 300
@@ -27,15 +38,16 @@ sprite_sheet = pygame.image.load("images/sprites/character/Characters/Knight_ani
 frame_list = frame(fnum, f_w, f_h)
 
 while True:
-
+    time = pygame.time.get_ticks()
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
 
+    fnow, lasttime = ftimer(time, fnow, fnum, lasttime)
+
     screen.fill("black")
 
-    screen.blit(sprite_sheet,(150, 150), frame_list[0])
-
+    screen.blit(sprite_sheet,(150, 150), frame_list[fnow])
 
     pygame.display.update()
