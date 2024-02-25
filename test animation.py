@@ -67,18 +67,18 @@ def main():
                 sys.exit()
 
             if pressed_keys[pygame.K_d] == True:
-                fnum = 7
+                fnum = 6
                 a_num = 1
 
 
             if pressed_keys[pygame.K_a] == True:
-                fnum = 7
+                fnum = 6
                 a_num = 1
 
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1:
-                    fnum = 14
+                    fnum = 13
                     a_num = 4
 
             if event.type == pygame.KEYUP or event.type == pygame.MOUSEBUTTONUP:
