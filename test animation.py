@@ -23,8 +23,10 @@ def ftimer(time, fnow, fnum, lasttime):
         lasttime = pygame.time.get_ticks()
         fnow = (fnow +1) % fnum
         return fnow, lasttime
-
 def main():
+
+    pygame.init()
+
 
     fnow = 0
     fnum = 7
