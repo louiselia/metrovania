@@ -33,7 +33,9 @@ while True:
             pygame.quit()
             sys.exit()
 
-    knight = sprite_sheet.get_rect(frame_list[0])
-    pygame.draw(knight)
     screen.fill("black")
+
+    screen.blit(sprite_sheet,(150, 150), frame_list[0])
+
+
     pygame.display.update()
