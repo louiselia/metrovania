@@ -35,12 +35,6 @@ def ftimer(time, fnow, fnum):
         fnow = (fnow +1) % fnum
         return time, fnow
 
-
-def rect_drawer(screen, bg_y, color):
-    test_rect = pygame.Rect(1200, 600, 2000, 300)
-    test_rect.center = (bg_y, 900)
-    pygame.draw.rect(screen, (color), test_rect)
-
 def map_lister(tmxfile):
 #   this takes every tile that is a instance(that means it will have to be drawn) and puts it in a list
 #   every row has its own list inside of the map list
