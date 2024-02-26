@@ -81,9 +81,11 @@ def main():
     fnum = 7
     lasttime = 0
 
-    f_w = 48
-    f_h = 32
-    f_y = 32
+    upsizefactor = 4
+
+    f_w = 48 * upsizefactor
+    f_h = 32 * upsizefactor
+    f_y = 32 * upsizefactor
 
     a_num = 0
 
@@ -98,11 +100,7 @@ def main():
     frame_list = frame(fnum, f_w, f_h, f_y)
 
     sprite_sheet = pygame.image.load("images/sprites/character/Characters/Knight_anin.png")
-
-#   player zeugs
-
-#    player = Character("images/sprites/character/Characters/king.png", screen.get_width() / 4, screen.get_height() / 4 * 3)
-
+    sprite_sheet = pygame.transform.scale(sprite_sheet, (sprite_sheet.get_width() * upsizefactor, sprite_sheet.get_height() * upsizefactor))
 
     while True:
 
