@@ -139,7 +139,10 @@ def main():
         map_drawer(screen, map_list, map_data, bg_x, bg_y)
 
         fnow, lasttime = ftimer(time, fnow, fnum, lasttime)
-        screen.blit(sprite_sheet, (150, 150), frame_list[a_num][fnow])
+
+        current_frame = frame_list[a_num][fnow]
+
+        screen.blit(sprite_sheet, (150, 150), current_frame)
         pygame.display.update()
         clock.tick(60)
 

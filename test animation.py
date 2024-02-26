@@ -64,6 +64,7 @@ def main():
     pygame.display.set_caption("Animation Test")
     sprite_sheet = pygame.image.load("images/sprites/character/Characters/Knight_anin.png")
 
+
     frame_list = frame(fnum, f_w, f_h, f_y)
     print()
     while True:
