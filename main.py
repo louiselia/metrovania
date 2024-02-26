@@ -1,18 +1,5 @@
 import pygame, sys, pytmx
 
-class Character:
-    def __init__(self, image, x, y):
-        self.image = pygame.image.load(image)
-        self.x = x
-        self.y = y
-    def draw(self, screen):
-        screen.blit(self.image, (self.x, self.y))
-
-
-
-def draw_character(self,screen):
-    screen.blit(self.knight, (self.x, self.y))
-
 def frame(fnum, f_w, f_h):
 
     # this determines how big the singular animation parts will be
@@ -75,8 +62,6 @@ def main():
     f_w = 16
     fnum = 3 # frame count
     fnow = 0 # frame the programm is currently on
-    # sprite_sheet = pygame.image.load('images/sprites/spritesheet_animation_test.png')
-    frames = frame(fnum, f_w, f_h)
 
     move_speed = 1
     bg_y = 0
@@ -87,7 +72,7 @@ def main():
 
 #   player zeugs
 
-    player = Character("images/sprites/character/Characters/king.png", screen.get_width() / 4, screen.get_height() / 4 * 3)
+#    player = Character("images/sprites/character/Characters/king.png", screen.get_width() / 4, screen.get_height() / 4 * 3)
 
 
     while True:
@@ -123,14 +108,9 @@ def main():
 
         time, fnow = ftimer(time, fnow, fnum)
 
-
         screen.fill((0, 27, 35))
 
-#       screen.blit(sprite_sheet, (100, 100), frames[fnow])
-
         map_drawer(screen, map_list, map_data, bg_x, bg_y)
-
-        player.draw(screen)
 
         pygame.display.update()
         clock.tick(60)
