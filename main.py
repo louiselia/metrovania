@@ -86,10 +86,7 @@ def main():
     f_y = 32
 
     a_num = 0
-    #frame zeugs
 
-    fnum = 3 # frame count
-    fnow = 0 # frame the programm is currently on
 
     move_speed = 1
     bg_y = 0
@@ -122,6 +119,7 @@ def main():
                 a_num = 1
 
             if pressed_keys[pygame.K_a] == True:
+
                 fnum = 6
                 a_num = 1
 
@@ -136,17 +134,12 @@ def main():
                 fnum = 7
                 fnow = 0
 
-            #fnow, lasttime = ftimer(time, fnow, fnum, lasttime)
 
-            map_drawer(screen, map_list, map_data, bg_x, bg_y)
-            screen.blit(sprite_sheet, (150, 150), frame_list[a_num][fnow])
 
+        map_drawer(screen, map_list, map_data, bg_x, bg_y)
 
         fnow, lasttime = ftimer(time, fnow, fnum, lasttime)
-
-
-
-
+        screen.blit(sprite_sheet, (150, 150), frame_list[a_num][fnow])
         pygame.display.update()
         clock.tick(60)
 
