@@ -20,9 +20,9 @@ class Player():
 	def horizontalmove(self, dt):
 		self.acceleration.x = 0
 		if self.LEFT_KEY:
-			self.acceleration.x -= 0.1
+			self.acceleration.x -= 0.3
 		elif self.RIGHT_KEY:
-			self.acceleration.x += 0.1
+			self.acceleration.x += 0.3
 		self.acceleration += self.velocity * self.friction
 		self.velocity = self.acceleration * dt
 

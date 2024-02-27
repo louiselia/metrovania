@@ -103,13 +103,14 @@ def main():
     sprite_sheet = pygame.image.load("images/sprites/character/Characters/Knight_anin.png")
     sprite_sheet = pygame.transform.scale(sprite_sheet, (sprite_sheet.get_width() * upsizefactor, sprite_sheet.get_height() * upsizefactor))
 
-    player = Player(screen.get_width() / 4 ,  screen.get_height() * 0.75)
+    player = Player(screen.get_width() * 0.25,  screen.get_height() * 0.75)
+
     while True:
 
         pressed_keys = pygame.key.get_pressed()
         time = pygame.time.get_ticks()
 
-        dt = clock.tick(60 * 0.001 * 60)
+        dt = clock.tick(60) * 0.001 * 60
 
         player.update(dt)
 
