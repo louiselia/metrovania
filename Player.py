@@ -5,16 +5,17 @@ class Player:
 	def __init__(self, x, y):
 		self.x = x
 		self.y = y
-		self.
-		self.
-		self.
+		self.RIGHT_KEY = False
+		self.LEFT_KEY = False
+		self.facingleft = False
 		self.isjumping = False
 		self.onground = False
 		self.gravity = 2.
 		self.friction = -2
 		self.position = pygame.math.Vector2(0,0)
-		self.accseleration = .5
-		self.velocity = 0
+		self.velocity = pygame.math.Vector2(0, 0)
+		self.accseleration = pygame.math.Vector2(0, self.gravity)
+
 
 	def horizontalmove(self):
 		pass
