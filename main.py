@@ -1,4 +1,5 @@
 import pygame, sys, pytmx
+import Player
 
 def frame(fnum, f_w, f_h, f_y):
 
@@ -102,6 +103,7 @@ def main():
     sprite_sheet = pygame.image.load("images/sprites/character/Characters/Knight_anin.png")
     sprite_sheet = pygame.transform.scale(sprite_sheet, (sprite_sheet.get_width() * upsizefactor, sprite_sheet.get_height() * upsizefactor))
 
+    player = Player(screen.get_width() / 4 ,  screen.get_height() * 0.75)
     while True:
 
         pressed_keys = pygame.key.get_pressed()
@@ -142,7 +144,7 @@ def main():
 
         current_frame = frame_list[a_num][fnow]
 
-        screen.blit(sprite_sheet, (150, 150), current_frame)
+        screen.blit(sprite_sheet, (player.x, player.y), current_frame)
         pygame.display.update()
         clock.tick(60)
 
