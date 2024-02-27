@@ -14,12 +14,20 @@ class Player:
 		self.friction = -2
 		self.position = pygame.math.Vector2(0,0)
 		self.velocity = pygame.math.Vector2(0, 0)
-		self.accseleration = pygame.math.Vector2(0, self.gravity)
+		self.acceleration = pygame.math.Vector2(0, self.gravity)
 
 
-	def horizontalmove(self):
-		pass
+	def horizontalmove(self, dt):
+		self.acceleration.x = 0
+		if self.LEFT_KEY:
+			self.acceleration.x -= 0.3
+		elif self.RIGHT_KEY:
+			self.acceleration.x += 0.3
+		self.acceleration += self.velocity * self.friction
+		self.velocity = self.acceleration * dt
 
+		self.position.x = self.velocity.x * dt + (self.acceleration * 0.5) * (dt * dt)
+		self.x = self.position.x
 
 	def verticalmove(self):
 		pass
