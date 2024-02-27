@@ -119,15 +119,16 @@ def main():
                 pygame.quit()
                 sys.exit()
 
-            if pressed_keys[pygame.K_d] == True:
-                player.RIGHT_KEY = True
-                fnum = 6
-                a_num = 1
+            if event.type == pygame.KEYDOWN:
+                if pressed_keys[pygame.K_d] == True:
+                    player.RIGHT_KEY = True
+                    fnum = 6
+                    a_num = 1
 
-            if pressed_keys[pygame.K_a] == True:
-                player.LEFT_KEY = True
-                fnum = 6
-                a_num = 1
+                if pressed_keys[pygame.K_a] == True:
+                    player.LEFT_KEY = True
+                    fnum = 6
+                    a_num = 1
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1:
@@ -140,6 +141,11 @@ def main():
                 fnum = 7
                 fnow = 0
 
+            if event.type == pygame.KEYUP:
+                if pressed_keys[pygame.K_d]:
+                    player.LEFT_KEY = False
+                if pressed_keys[pygame.K_a]:
+                    player.RIGHT_KEY = False
 
 
         map_drawer(screen, map_list, map_data, bg_x, bg_y)
