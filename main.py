@@ -107,6 +107,8 @@ def main():
         pressed_keys = pygame.key.get_pressed()
         time = pygame.time.get_ticks()
 
+        dt = clock.tick(60 * 0.001 * 60)
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
