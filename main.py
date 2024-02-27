@@ -110,7 +110,8 @@ def main():
         pressed_keys = pygame.key.get_pressed()
         time = pygame.time.get_ticks()
 
-        dt = clock.tick(60) * 0.001 * 60
+        dt = 0.6
+        #clock.tick(60) * 0.001 * 60
 
         player.update(dt)
 
