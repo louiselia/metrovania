@@ -11,7 +11,7 @@ class Player():
 		self.isjumping = False
 		self.onground = False
 		self.gravity = 0.35
-		self.friction = -.99
+		self.friction = -0.99
 		self.position = pygame.math.Vector2(0,0)
 		self.velocity = pygame.math.Vector2(0, 0)
 		self.acceleration = pygame.math.Vector2(0, self.gravity)
@@ -28,12 +28,12 @@ class Player():
 				self.velocity.x += 0.5
 			self.acceleration.x += 0.5
 
-		if abs(self.velocity.x) > 0:
+		if abs(self.velocity.x) != 0:
+			self.velocity.x /= 0.5
 
-			if self.velocity.x < 0:
-				self.velocity.x += 0.5
-			if self.velocity.x > 0:
-				self.velocity.x -= 0.5
+			if abs(self.velocity.x) < 0:
+				self.velocity.x = 0
+
 
 
 		self.acceleration.x += self.velocity.x * self.friction
