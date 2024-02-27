@@ -1,5 +1,5 @@
 import pygame, sys, pytmx
-import Player
+from Player import Player
 
 def frame(fnum, f_w, f_h, f_y):
 
@@ -111,17 +111,20 @@ def main():
 
         dt = clock.tick(60 * 0.001 * 60)
 
+        player.update(dt)
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
 
             if pressed_keys[pygame.K_d] == True:
+                player.RIGHT_KEY = True
                 fnum = 6
                 a_num = 1
 
             if pressed_keys[pygame.K_a] == True:
-
+                player.LEFT_KEY = True
                 fnum = 6
                 a_num = 1
 
@@ -146,6 +149,7 @@ def main():
 
         screen.blit(sprite_sheet, (player.x, player.y), current_frame)
         pygame.display.update()
+
         clock.tick(60)
 
 
