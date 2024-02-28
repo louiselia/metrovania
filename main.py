@@ -110,8 +110,7 @@ def main():
         pressed_keys = pygame.key.get_pressed()
         time = pygame.time.get_ticks()
 
-        dt = 0.6
-        #clock.tick(60) * 0.001 * 60
+        dt = clock.tick(60) * 0.001 * 60
 
         player.update(dt)
 
@@ -143,7 +142,9 @@ def main():
                 fnow = 0
 
             if event.type == pygame.KEYUP:
+
                 if pressed_keys[pygame.K_d]:
+                    print('seba')
                     player.LEFT_KEY = False
                 if pressed_keys[pygame.K_a]:
                     player.RIGHT_KEY = False

@@ -13,27 +13,32 @@ class Player():
 		self.onground = False
 
 		self.gravity = 0.35
-		self.friction = -0.99
+		self.friction = 0.59
 		self.position = pygame.math.Vector2(0, 0)
 		self.velocity = pygame.math.Vector2(0, 0)
 		self.acceleration = pygame.math.Vector2(0, self.gravity)
 
 	def horizontalmove(self, dt):
 		self.acceleration.x = 0
+
 		if self.LEFT_KEY:
-			self.acceleration.x -= 0.5
 
-		if self.RIGHT_KEY:
+			self.acceleration.x -= 0.3
 
-			self.acceleration.x += 0.5
-		else:
-			pass
+		elif self.RIGHT_KEY:
 
-		self.acceleration.x = self.acceleration.x + self.friction
-		self.velocity.x = self.acceleration.x * dt
+			self.acceleration.x += 0.3
+		elif True:
+			self.velocity.x = 0
 
-		self.position.x = (self.velocity.x * 0.5 * dt**2)
-		self.x += self.position.x
+		self.acceleration.x += self.acceleration.x * self.friction
+		self.velocity.x += self.acceleration.x * dt
+
+		if abs(self.velocity.x) < 0.1:
+			self.velocity.x = 0
+
+		self.position.x += self.velocity.x * dt / 2 + (self.velocity.x * 0.5 * dt**2)
+		self.x = self.position.x
 
 
 	def verticalmove(self, dt):
