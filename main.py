@@ -44,6 +44,7 @@ def ftimer(time, fnow, fnum, lasttime):
 
 
 def map_lister(tmxfile):
+#
 #   this takes every tile that is a instance(that means it will have to be drawn) and puts it in a list
 #   every row has its own list inside of the map list
 
