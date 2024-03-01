@@ -13,7 +13,7 @@ class Player():
 		self.onground = False
 
 		self.gravity = 0.35
-		self.friction = 0.59
+		self.friction = 0.39
 		self.position = pygame.math.Vector2(0, 0)
 		self.velocity = pygame.math.Vector2(0, 0)
 		self.acceleration = pygame.math.Vector2(0, self.gravity)
@@ -22,16 +22,16 @@ class Player():
 	def Left(self):
 
 		if self.acceleration.x > 1:
-			self.acceleration.x /= 10
+			self.acceleration.x /= 5
 		else:
-			self.acceleration.x -= 0.3
+			self.acceleration.x -= 0.4
 
 	def Right(self):
 
 		if self.acceleration.x < -1:
-			self.acceleration.x /= 10
+			self.acceleration.x /= 5
 		else:
-			self.acceleration.x += 0.3
+			self.acceleration.x += 0.4
 
 	def horizontalmove(self, dt):
 #		self.acceleration.x = 0
@@ -43,9 +43,7 @@ class Player():
 
 		if self.LEFT_KEY == False and self.RIGHT_KEY == False:
 			print('seba')
-			self.acceleration.x = -self.velocity.x
-			self.Right()
-			self.Left()
+			self.velocity.x /= 10
 
 		self.acceleration.x = self.acceleration.x * self.friction
 		self.velocity.x += self.acceleration.x * dt
@@ -55,7 +53,9 @@ class Player():
 		if abs(self.acceleration.x) < .1:
 			self.acceleration.x = 0
 
-		self.position.x = self.x + self.velocity.x * dt + (self.velocity.x * 0.5 * dt**2)
+		print(self.velocity.x, self.acceleration.x)
+
+		self.position.x += self.velocity.x * dt + (self.velocity.x * 0.5 * dt**2)
 		self.x = self.position.x
 
 

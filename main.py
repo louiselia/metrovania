@@ -115,6 +115,9 @@ def main():
 
         player.update(dt)
 
+        player.RIGHT_KEY = False
+        player.LEFT_KEY = False
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -142,13 +145,7 @@ def main():
                 fnum = 7
                 fnow = 0
 
-            if event.type == pygame.KEYUP:
 
-                if pressed_keys[pygame.K_d]:
-                    print('seba')
-                    player.LEFT_KEY = False
-                if pressed_keys[pygame.K_a]:
-                    player.RIGHT_KEY = False
 
 
         map_drawer(screen, map_list, map_data, bg_x, bg_y)
