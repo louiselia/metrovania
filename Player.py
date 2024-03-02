@@ -22,19 +22,19 @@ class Player():
 	def Left(self):
 
 		if self.acceleration.x > 1:
-			self.acceleration.x /= 5
+			self.acceleration.x -= 1
 		else:
-			self.acceleration.x -= 0.4
+			self.acceleration.x -= 0.8
 
 	def Right(self):
 
 		if self.acceleration.x < -1:
-			self.acceleration.x /= 5
+			self.acceleration.x += 1
 		else:
-			self.acceleration.x += 0.4
+			self.acceleration.x += 0.8
 
 	def horizontalmove(self, dt):
-#		self.acceleration.x = 0
+		self.acceleration.x = 0
 		if self.LEFT_KEY:
 			self.Left()
 
@@ -42,7 +42,6 @@ class Player():
 			self.Right()
 
 		if self.LEFT_KEY == False and self.RIGHT_KEY == False:
-			print('seba')
 			self.velocity.x /= 10
 
 		self.acceleration.x = self.acceleration.x * self.friction
@@ -66,9 +65,3 @@ class Player():
 	def update(self, dt):
 		self.horizontalmove(dt)
 		self.verticalmove(dt)
-
-'''		if self.RIGHT_KEY == False and self.LEFT_KEY:
-			if abs(self.velocity.x) > 0:
-				self.velocity.x /= 0.5
-				if abs(self.velocity.x) < 0.1:
-					self.velocity.x = 0'''
