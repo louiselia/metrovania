@@ -134,6 +134,14 @@ def main():
                     fnum = 6
                     a_num = 1
 
+                if pressed_keys[pygame.K_SPACE] == True:
+                    player.jump()
+
+            if event.type == pygame.KEYUP:
+                if event.type == pygame.K_SPACE:
+                        player.velocity.y *= .25
+                        player.is_jumping = False
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1:
                     fnum = 13

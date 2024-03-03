@@ -10,11 +10,13 @@ class Player():
 
 		self.facingleft = False
 		self.isjumping = False
-		self.onground = False
+		self.onground = True
 
-		self.gravity = 0.35
+		self.inscreenpos = pygame.math.Vector2(self.x, self.y)
+
+		self.gravity = 0.55
 		self.friction = 0.39
-		self.position = pygame.math.Vector2(0, 0)
+		self.position = pygame.math.Vector2(self.x, self.y)
 		self.velocity = pygame.math.Vector2(0, 0)
 		self.acceleration = pygame.math.Vector2(0, self.gravity)
 
@@ -54,14 +56,28 @@ class Player():
 
 		print(self.velocity.x, self.acceleration.x)
 
-		self.position.x += self.velocity.x * dt + (self.velocity.x * 0.5 * dt**2)
+		self.position.x += self.velocity.x * dt #+ (self.acceleration.x * 0.5 * dt**2)
 		self.x = self.position.x
-
-
-	def verticalmove(self, dt):
-		pass
-
 
 	def update(self, dt):
 		self.horizontalmove(dt)
 		self.verticalmove(dt)
+
+	def verticalmove(self, dt):
+		self.velocity.y += self.acceleration.y * dt
+		if self.velocity.y > 7:
+			self.velocity.y = 7
+		self.position.y += self.velocity.y * dt + (self.acceleration.y * .5) * (dt * dt)
+
+		if self.position.y > self.inscreenpos.y:
+			self.on_ground = True
+			self.velocity.y = 0
+			self.position.y = self.inscreenpos.y
+		self.y = self.position.y
+
+	def jump(self):
+		if self.on_ground:
+			self.isjumping = True
+			self.velocity.y -= 8
+			self.on_ground = False
+
