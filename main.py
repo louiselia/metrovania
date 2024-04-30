@@ -92,7 +92,6 @@ def main():
     a_num = 0
 
 
-    move_speed = 1
     bg_y = 0
     bg_x = 0
 
@@ -107,6 +106,8 @@ def main():
     player = Player(screen.get_width() * 0.25,  screen.get_height() * 0.75)
 
     while True:
+
+        screen.fill((0, 27, 35))
 
         pressed_keys = pygame.key.get_pressed()
         time = pygame.time.get_ticks()
@@ -156,7 +157,7 @@ def main():
 
 
 
-        map_drawer(screen, map_list, map_data, bg_x, bg_y)
+        map_drawer(screen, map_list, map_data, player.position.x - screen.get_width(), bg_y)
 
         fnow, lasttime = ftimer(time, fnow, fnum, lasttime)
 
