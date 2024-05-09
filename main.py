@@ -118,6 +118,7 @@ def main():
         player.RIGHT_KEY = False
         player.LEFT_KEY = False
 
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
